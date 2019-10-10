@@ -1,32 +1,42 @@
-import React from 'react'
-import { Breadcrumb, BreadcrumbItem } from '../'
-import { DocsTile, DocsText, Separator, Header, Description, Import } from '../'
+import { Breadcrumb } from '../';
+import { Link } from 'react-router-dom';
+import path from 'path';
+import React from 'react';
+import { ComponentPage, Example } from '../_playground';
 
 export const BreadcrumbComponent = () => {
-    const breadcrumbCode = `<Breadcrumb>
-    <BreadcrumbItem url="#" name="Link Text"/>
-    <BreadcrumbItem url="#" name="Link Text"/>
-    <BreadcrumbItem url="#" name="Link Text"/>
-</Breadcrumb>`
-
     return (
-        <div>
+        <ComponentPage
+            description={`The **Breadcrumb** allows users to see the current page and navigation path to that page. Users can navigate
+                to previous levels in the path. When clicking on the current page, a dropdown allows users to access
+                other pages at that same level.`}
+            sourceModulePath={path.join(__dirname, './Breadcrumb')}
+            title='Breadcrumb'>
 
-            <Header>Breadcrumb</Header>
-            <Description>The breadcrumb allows users to see the current page and navigation path to that page. Users can navigate to previous levels in the path. When clicking on the current page, a dropdown allows users to access other pages at that same level.
-            </Description>
-            <Import module="Breadcrumb, BreadcrumbItem" path="/react-fundamental/src/" />
-
-            <Separator />
-
-            <DocsTile>
+            <Example
+                title='Using url (href attribute)'>
                 <Breadcrumb>
-                    <BreadcrumbItem url="#" name="Link Text"/>
-                    <BreadcrumbItem url="#" name="Link Text"/>
-                    <BreadcrumbItem url="#" name="Link Text"/>
+                    <Breadcrumb.Item name='Link Text' url='#' />
+                    <Breadcrumb.Item name='Link Text' url='#' />
+                    <Breadcrumb.Item name='Link Text' url='#' />
                 </Breadcrumb>
-            </DocsTile>
-            <DocsText>{breadcrumbCode}</DocsText>
-        </div>
+            </Example>
+
+            <Example
+                title='Using Link from React Router'>
+                <Breadcrumb>
+                    <Breadcrumb.Item>
+                        <Link to='#'>Link Text</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link to='#'>Link Text</Link>
+                    </Breadcrumb.Item>
+                    <Breadcrumb.Item>
+                        <Link to='#'>Link Text</Link>
+                    </Breadcrumb.Item>
+                </Breadcrumb>
+            </Example>
+
+        </ComponentPage>
     );
-}
+};

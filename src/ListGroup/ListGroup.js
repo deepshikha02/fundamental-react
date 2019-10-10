@@ -1,41 +1,38 @@
+import classnames from 'classnames';
+import ListGroupItem from './_ListGroupItem';
+import ListGroupItemActions from './_ListGroupItemActions';
+import ListGroupItemCheckbox from './_ListGroupItemCheckbox';
+import PropTypes from 'prop-types';
 import React from 'react';
+import withStyles from '../utils/WithStyles/WithStyles';
 
-export const ListGroup = (props) => {
-    const { children } = props;
+const ListGroup = React.forwardRef(({ children, className, disableStyles, ...props }, ref) => {
+    const listGroupClasses = classnames(
+        'fd-list-group',
+        className
+    );
+
     return (
-        <ul className="fd-list-group">
+        <ul {...props} className={listGroupClasses}
+            ref={ref}>
             {children}
         </ul>
     );
-}
+});
 
-export const ListGroupItem = (props) => {
-    const { children } = props;
-    return (
-        <li className="fd-list-group__item">
-            {children}
-        </li>
+ListGroup.displayName = 'ListGroup';
 
-    );
-}
+ListGroup.propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    customStyles: PropTypes.object,
+    disableStyles: PropTypes.bool
+};
 
-export const ListGroupItemActions = (props) => {
-    const { children } = props;
-    return (
-        <span className="fd-list-group__action">
-            {children}
-        </span>
-    );
-}
+ListGroup.Item = ListGroupItem;
+ListGroup.ItemActions = ListGroupItemActions;
+ListGroup.ItemCheckbox = ListGroupItemCheckbox;
 
-export const ListGroupItemCheckbox = (props) => {
-    const { children } = props;
-    return (
-        <div className="fd-form__item fd-form__item--check">
-            <label className="fd-form__label" for="CndSd399">
-                <input type="checkbox" className="fd-form__control" id="CndSd399" />
-                {children}
-            </label>
-        </div>
-    );
-}
+export { ListGroup as __ListGroup };
+
+export default withStyles(ListGroup, { cssFile: 'list-group', fonts: true });

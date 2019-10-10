@@ -1,42 +1,61 @@
-import React from 'react'
-import { Toggle } from './Toggle'
-import { DocsTile, DocsText, Separator, Header, Description, Import, Properties } from '../'
+import path from 'path';
+import React from 'react';
+import { Toggle } from '../';
+import { ComponentPage, Example } from '../_playground';
 
 export const ToggleComponent = () => {
-    const toggleCode = `<Toggle size="small" id="Yj07w605">Small toggle</Toggle>
-<Toggle id="Yj07w606">Normal toggle</Toggle>
-<Toggle size="large" id="Yj07w607">Large toggle</Toggle>`
-
     return (
-        <div>
+        <ComponentPage
+            description={`The **Toggle** component is used to activate or deactivate an element. It uses a visual metaphor that is known
+                to the user with visible differences between on and off state. It is recommended to always display the
+                toggle with a label above it as well as the label of the selected state. For example, the label above
+                would be "Active", the toggle state would be “on” and the selected state label displayed to the right of
+                the toggle would be “Yes”.`}
+            sourceModulePath={path.join(__dirname, './Toggle')}
+            title='Toggle'>
 
-            <Header>Toggle</Header>
-            <Description>The toggle component is used to activate or deactivate an element. Uses a visual metaphor that is know to the user with visible differences between on and off state.
-            It is recommended to always display the toggle with a label above it as well as the label of the selected state. For example, the label above would be Active, the toggle state would be “on” and the selected state label displayed to the right of the toggle would be “Yes”.
-            </Description>
-            <Import module="Toggle" path="/react-fundamental/src/" />
+            <Example
+                description={`The toggle can be set to 4 sizes: 'xs', 's', 'm' and 'l'. When used 
+                    with forms, it is recommended to use the small size so that form components will be
+                    consistent.`}
+                title='Sizes'>
+                <div>
+                    <Toggle size='xs'>
+                        Extra Small toggle
+                    </Toggle>
+                    <Toggle checked
+                        size='s'>
+                        Small toggle
+                    </Toggle>
+                    <Toggle>Normal toggle</Toggle>
+                    <Toggle checked
+                        size='l'>
+                        Large toggle
+                    </Toggle>
+                </div>
+            </Example>
 
-            <Separator />
+            <Example
+                title='Disabled State'>
+                <div>
+                    <Toggle disabled
+                        size='xs'>
+                        Extra Small toggle
+                    </Toggle>
+                    <Toggle checked disabled
+                        size='s'>
+                        Small toggle
+                    </Toggle>
+                    <Toggle disabled>
+                        Normal toggle
+                    </Toggle>
+                    <Toggle checked disabled
+                        size='l'>
+                        Large toggle
+                    </Toggle>
+                </div>
+            </Example>
 
-            <Properties type="Inputs" properties=
-            {[
-                {name: 'size', description: 'String - The size of the toggle.'}, 
-                {name: 'id', description: 'String - The id of the toggle.'}
-            ]}/>
-           
-            <Separator />
-
-            <h2>Toggle Sizes</h2>
-            <Description>The toggle can be set to 3 sizes: 'small', 'normal' and 'large'. When used with forms, it is recommended to use the small size so that form components will be consistent.</Description>
-            <DocsTile>
-                <Toggle size="small" id="Yj07w605">Small toggle</Toggle>
-                <Toggle id="Yj07w606">Normal toggle</Toggle>
-                <Toggle size="large" id="Yj07w607">Large toggle</Toggle>
-            </DocsTile>
-            <DocsText>{toggleCode}</DocsText>
-
-            <Separator />
-
-        </div>
+        </ComponentPage>
     );
-}
+};

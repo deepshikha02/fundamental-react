@@ -1,29 +1,39 @@
-import React from 'react';
+import ActionBarActions from './_ActionBarActions';
+import ActionBarBack from './_ActionBarBack';
+import ActionBarHeader from './_ActionBarHeader';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
+import withStyles from '../utils/WithStyles/WithStyles';
 
-export const ActionBar = (props) => {
-    const { title, hasActions, children } = props;
+const ActionBar = React.forwardRef(({ children, className, disableStyles, ...props }, ref) => {
+    const actionBarClasses = classnames(
+        'fd-action-bar',
+        className
+    );
+
     return (
-        <div className="fd-action-bar">
-            <div className="fd-action-bar__header">
-                <h1 className="fd-action-bar__title">
-                    {title}
-                </h1>
-            </div>
-            {
-                hasActions ? (
-                    <div className="fd-action-bar__actions">
-                { children }
-                    </div>
-                ) : null
-            }
+        <div {...props}
+            className={actionBarClasses}
+            ref={ref}>
+            {children}
         </div>
     );
-}
+});
+
+ActionBar.displayName = 'ActionBar';
 
 ActionBar.propTypes = {
-    title: PropTypes.string.isRequired,
-    hasActions: PropTypes.bool
-}
+    children: PropTypes.node,
+    className: PropTypes.string,
+    customStyles: PropTypes.object,
+    disableStyles: PropTypes.bool
+};
 
+ActionBar.Actions = ActionBarActions;
+ActionBar.Back = ActionBarBack;
+ActionBar.Header = ActionBarHeader;
 
+export { ActionBar as __ActionBar };
+
+export default withStyles(ActionBar, { cssFile: 'action-bar', fonts: true });

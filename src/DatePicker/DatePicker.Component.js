@@ -1,37 +1,34 @@
-import React from 'react'
-import {DocsTile, DocsText, Separator, Header, Description, Import, Properties } from '../'
-import {DatePicker} from '../'
+import { DatePicker } from '../';
+import path from 'path';
+import React from 'react';
+import { ComponentPage, Example } from '../_playground';
 
 export const DatePickerComponent = () => {
+    return (
+        <ComponentPage
+            description={`The **Date Picker** is an opinionated composition of the **Input Group**, **Popover**
+                and **Calendar** components to accomplish the UI pattern for picking a date.`}
+            sourceModulePath={path.join(__dirname, './DatePicker')}
+            title='Date Picker'>
 
-    const defaultDatePickerCode = `<DatePicker/>`
-    const enableRangeSelectionDatePickerCode = `<DatePicker enableRangeSelection={true}/>`
+            <Example
+                centered
+                title='Simple Date Picker'>
+                <DatePicker disableBeforeDate={new Date(2018, 11, 24, 0, 0, 0, 0)} disableWeekends />
+                <DatePicker
+                    blockedDates={[new Date(2018, 11, 1, 0, 0, 0, 0), new Date(2018, 11, 23, 0, 0, 0, 0)]}
+                    compact
+                    disableWeekday={['Monday', 'Tuesday']} />
+            </Example>
 
-    return(<div>
-        <Header>DatePicker</Header>
-        <Description>The date-picker component is an opinionated composition of the "input-group", "popover" and "calendar" components to accomplish the UI pattern for picking a date.</Description>
-        <Import module="DatePicker" path="/react-fundamental/src/" />
-        
-        <Separator />
+            <Example
+                centered
+                title='Range Date Picker'>
+                <DatePicker disableFutureDates enableRangeSelection />
+                <DatePicker compact disablePastDates
+                    enableRangeSelection />
+            </Example>
 
-        <Properties type="Inputs" properties=
-            {[
-                {name: 'enableRangeSelection', description: 'Bool - Enable to select two dates'}
-            ]}/>
-
-        <Separator />
-        
-        <h2>Simple Date Picker</h2>
-        <DocsTile>
-            <DatePicker/>
-        </DocsTile>
-        <DocsText>{defaultDatePickerCode}</DocsText>
-        <Separator />
-        
-        <h2>Range Date Picker</h2>
-        <DocsTile>
-            <DatePicker enableRangeSelection={true}/>
-        </DocsTile>
-        <DocsText>{enableRangeSelectionDatePickerCode}</DocsText>
-        </div>)
+        </ComponentPage>
+    );
 };

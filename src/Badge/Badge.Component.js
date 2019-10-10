@@ -1,124 +1,121 @@
-import React from 'react'
-import { Badge, Label } from '../'
-import { DocsTile, DocsText, Separator, Header, Description, Import, Properties } from '../'
-import { Playground } from '../documentation/Playground/Playground';
+import path from 'path';
+import React from 'react';
+import { Badge, Button, Counter, Label, Status } from '../';
+import { ComponentPage, Example } from '../_playground';
 
 export const BadgeComponent = () => {
-    const defaultBadgeCode = `<Badge>Default</Badge>
-<Badge type="success">Default</Badge>
-<Badge type="warning">Default</Badge>
-<Badge type="error">Default</Badge>`
-
-    const pillBadgeCode = `<Badge modifier="pill">Default</Badge>
-<Badge type="success" modifier="pill">Default</Badge>
-<Badge type="warning" modifier="pill">Default</Badge>
-<Badge type="error" modifier="pill">Default</Badge>`
-
-    const filledBadgeCode = `<Badge modifier="filled">Default</Badge>
-<Badge type="success" modifier="filled">Default</Badge>
-<Badge type="warning" modifier="filled">Default</Badge>
-<Badge type="error" modifier="filled">Default</Badge>`
-
-    const labelCode = `<Label>Default</Label>
-<Label type="success">Default</Label>
-<Label type="warning">Default</Label>
-<Label type="error">Default</Label>`
-
     return (
-        <div>
+        <ComponentPage
+            description='Status Indicators are used to easily highlight the state of an object.'
+            sourceModulePath={path.join(__dirname, './Badge')}
+            title='Status Indicators'>
 
-            <Header>Badge and Label</Header>
-            <Description>Badges and labels are used to indicate status. Colors, generally in combination with text, are used to easily highlight the state of an object.
-            The following colors should be used:
-            Black: default or inactive status;
-            Green: positive status, used for active, published, approved;
-            Orange: a warning status or to indicate that an action can be taken;
-            Red: error status.
-            </Description>
-            <Import module="Badge, Label" path="/react-fundamental/src/" />
-
-            <Separator />
-
-            <Properties type="Inputs" properties=
-                {[
-                    { name: 'type', description: 'String - The type indicates the status of the badge/label. Options include \'default\', \'success\', \'warning\', and \'error\'. Leave empty for default.' },
-                    { name: 'modifier', description: 'String - Modifiers can be \'pill\' and \'filled\'. Leave empty for normal.' }
-                ]} />
-
-            <Separator />
-
-
-            <h2>Default Badge</h2>
-            <DocsTile>
+            <Example
+                centered
+                title='Default Badge'>
                 <Badge>Default</Badge>
-                <Badge type="success">Default</Badge>
-                <Badge type="warning">Default</Badge>
-                <Badge type="error">Default</Badge>
-            </DocsTile>
-            <DocsText>{defaultBadgeCode}</DocsText>
+                <Badge type='success'>Default</Badge>
+                <Badge type='warning'>Default</Badge>
+                <Badge type='error'>Default</Badge>
+            </Example>
 
-            <Separator />
+            <Example
+                centered
+                description='Apply `modifier="pill"` to render a pill version of the badge.'
+                title='Pill Badge'>
+                <Badge modifier='pill'>Default</Badge>
+                <Badge modifier='pill' type='success'>
+                        Default
+                </Badge>
+                <Badge modifier='pill' type='warning'>
+                        Default
+                </Badge>
+                <Badge modifier='pill' type='error'>
+                        Default
+                </Badge>
+            </Example>
 
-            <h2>Pill Badge</h2>
-            <Description>Apply <code>modifier="pill"</code> to render a pill version of the badge.</Description>
-            <DocsTile>
-                <Badge modifier="pill">Default</Badge>
-                <Badge type="success" modifier="pill">Default</Badge>
-                <Badge type="warning" modifier="pill">Default</Badge>
-                <Badge type="error" modifier="pill">Default</Badge>
-            </DocsTile>
-            <DocsText>{pillBadgeCode}</DocsText>
+            <Example
+                centered
+                description='Apply `modifier="filled"` to render a filled version of the badge.'
+                title='Filled Badge'>
+                <Badge modifier='filled'>Default</Badge>
+                <Badge modifier='filled' type='success'>
+                        Default
+                </Badge>
+                <Badge modifier='filled' type='warning'>
+                        Default
+                </Badge>
+                <Badge modifier='filled' type='error'>
+                        Default
+                </Badge>
+            </Example>
 
-            <Separator />
-
-            <h2>Filled Badge</h2>
-            <Description>Apply <code>modifier="filled"</code> to render a filled version of the badge.</Description>
-            <DocsTile>
-                <Badge modifier="filled">Default</Badge>
-                <Badge type="success" modifier="filled">Default</Badge>
-                <Badge type="warning" modifier="filled">Default</Badge>
-                <Badge type="error" modifier="filled">Default</Badge>
-            </DocsTile>
-            <DocsText>{filledBadgeCode}</DocsText>
-
-            <Separator />
-
-            <h2>Label</h2>
-            <DocsTile>
+            <Example
+                centered
+                title='Default Label'>
                 <Label>Default</Label>
-                <Label type="success">Default</Label>
-                <Label type="warning">Default</Label>
-                <Label type="error">Default</Label>
-            </DocsTile>
-            <DocsText>{labelCode}</DocsText>
+                <Label type='success'>Default</Label>
+                <Label type='warning'>Default</Label>
+                <Label type='error'>Default</Label>
+            </Example>
 
-            <Separator />
+            <Example
+                centered
+                description=''
+                title='Status Indicator Label with build in status icons'>
+                <Status>Default</Status>
+                <Status type='success'>Default</Status>
+                <Status type='warning'>Default</Status>
+                <Status type='error'>Default</Status>
+                <Status type='available'>Available</Status>
+                <Status type='away'>Away</Status>
+                <Status type='busy'>Busy</Status>
+                <Status type='offline'>Appear Offline</Status>
+            </Example>
 
+            <Example
+                centered
+                title='Status Indicator Label with any icons'>
+                <Status glyph='history'>Custom Icon</Status>
+                <Status glyph='message-success'>Success</Status>
+                <Status glyph='message-warning'>Warning</Status>
+                <Status glyph='message-error'>Error</Status>
+            </Example>
 
-            <h2>Playground</h2>
-            <Playground component="badge" schema= {[
-                    {
-                        attribute: 'children',
-                        typeOfAttribute: 'string'
-                    },
-                    {
-                        attribute: 'component',
-                        typeOfAttribute: 'string',
-                        enum: ['badge', 'label']
-                    },
-                    {
-                        attribute: 'type',
-                        typeOfAttribute: 'string',
-                        enum: ['default', 'success', 'warning', 'error']
-                    }, 
-                    {
-                        attribute: 'modifier',
-                        typeOfAttribute: 'string',
-                        enum: ['', 'pill', 'filled']
-                    }]}>
-                <Badge type="success" modifier="filled">Default</Badge>
-            </Playground>
-            <Separator />
-        </div>
+            <Example
+                centered
+                description='Counter has a minimum value 1. Maximum display is 999+'
+                title='Default Counter'>
+                <Counter>5</Counter>
+                <Counter>25</Counter>
+                <Counter>101</Counter>
+                <Counter>999+</Counter>
+            </Example>
+
+            <Example
+                centered
+                title='Counter inline with a paragraph'>
+                <p>Lorem ipsum <Counter>5</Counter></p>
+            </Example>
+
+            <Example
+                centered
+                description='Use the property `notification` to enable notification counter.'
+                title='Notification counter'>
+                <Button glyph='bell' option='light'>
+                    <Counter notification>5</Counter>
+                </Button>
+                <Button glyph='bell' option='light'>
+                    <Counter notification>25</Counter>
+                </Button>
+                <Button glyph='bell' option='light'>
+                    <Counter notification>101</Counter>
+                </Button>
+                <Button glyph='bell' option='light'>
+                    <Counter notification>999+</Counter>
+                </Button>
+            </Example>
+        </ComponentPage>
     );
-}
+};

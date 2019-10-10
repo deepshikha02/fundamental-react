@@ -1,29 +1,38 @@
-import React from 'react';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
+import withStyles from '../utils/WithStyles/WithStyles';
+import { BADGE_MODIFIERS, BADGE_TYPES } from '../utils/constants';
 
-export const Badge = (props) => {
-  const { type, modifier, children } = props;
-  return (
-    <span className={`fd-badge${type ? ' fd-badge--' + type : ''}${modifier ? ' fd-badge--' + modifier : ''}`}>
-      {children}
-    </span>
-  );
-}
+
+const Badge = React.forwardRef(({ type, modifier, children, className, disableStyles, ...props }, ref) => {
+    const badgeClasses = classnames(
+        'fd-badge',
+        {
+            [`fd-badge--${type}`]: !!type,
+            [`fd-badge--${modifier}`]: !!modifier
+        },
+        className
+    );
+
+    return (
+        <span {...props} className={badgeClasses}
+            ref={ref}>
+            {children}
+        </span>
+    );
+});
+Badge.displayName = 'Badge';
 
 Badge.propTypes = {
-  type: PropTypes.string,
-  modifier: PropTypes.string
-}
+    children: PropTypes.node,
+    className: PropTypes.string,
+    customStyles: PropTypes.object,
+    disableStyles: PropTypes.bool,
+    modifier: PropTypes.oneOf(BADGE_MODIFIERS),
+    type: PropTypes.oneOf(BADGE_TYPES)
+};
 
-export const Label = (props) => {
-  const { type, children } = props;
-  return (
-    <span className={`fd-label${type ? ' fd-label--' + type : ''}`}>
-      {children}
-    </span>
-  );
-}
+export { Badge as __Badge };
 
-Label.propTypes = {
-  type: PropTypes.string
-}
+export default withStyles(Badge, { cssFile: 'badge', fonts: true });

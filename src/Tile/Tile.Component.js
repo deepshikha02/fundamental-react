@@ -1,288 +1,113 @@
-import React from 'react'
-import { Tile, TileContent, TileMedia, TileActions, ProductTile, ProductTileContent, ProductTileMedia, TileGrid, Image, Identifier } from '../'
-import { Dropdown, DropdownList } from '../'
-import { DocsTile, DocsText, Separator, Header, Description, Import, Properties } from '../'
-import {Playground} from '../'
+import path from 'path';
+import React from 'react';
+import { Button, Identifier, Image, Menu, Popover, Tile } from '../';
+import { ComponentPage, Example } from '../_playground';
 
 export const TileComponent = () => {
-    const simpleTileCode = `<Tile>
-    <TileContent title="Tile Title">
-        <p>Tile Description</p>
-    </TileContent>
-</Tile>`
-    const mediaTileCode = `<Tile>
-    <TileMedia>
-        <Image size="m" photo="https://placeimg.com/400/400/nature"></Image>
-    </TileMedia>
-    <TileContent title="Tile Title">
-    </TileContent>
-</Tile>
-
-<Tile isButton="true">
-    <TileMedia>
-        <Image size="l" type="circle" photo="https://placeimg.com/400/400/nature"></Image>
-    </TileMedia>
-    <TileContent title="Tile Title">
-        <p>Tile Description</p>
-    </TileContent>
-</Tile>
-
-<Tile isButton="true">
-    <TileMedia>
-        <Identifier size="m" glyph="home" color="3"></Identifier>
-    </TileMedia>
-    <TileContent title="Tile Title">
-        <p>Tile Description</p>
-    </TileContent>
-</Tile>`
-
-    const actionsTileCode = `<Tile>
-    <TileContent title="Tile Title"></TileContent>
-    <TileActions>
-        <Dropdown size="m" isContextual={true}>
-            <DropdownList links=
-                {[
-                    { id: 'item_1', url: '#', name: 'Option 1' },
-                    { id: 'item_2', url: '#', name: 'Option 2' },
-                    { id: 'item_3', url: '#', name: 'Option 3' }
-                ]}>
-            </DropdownList>
-        </Dropdown>
-    </TileActions>
-</Tile>`
-
-    const productTileCode = `<ProductTile isButton="true">
-    <ProductTileMedia image="https://techne.yaas.io/images/product-thumbnail-wide.png"></ProductTileMedia>
-    <ProductTileContent title="Tile Title">
-        <p>Tile Description</p>
-    </ProductTileContent>
-</ProductTile>
-
-<ProductTile disabled="true">
-    <ProductTileMedia image="https://techne.yaas.io/images/product-thumbnail-wide.png"></ProductTileMedia>
-    <ProductTileContent title="Tile Title">
-        <p>Tile Description</p>
-    </ProductTileContent>
-</ProductTile>`
-    const tileGridCode = `<TileGrid col={4}>
-    <Tile rowSpan={2} colorAccent={7}>
-        <TileContent title="Tile Title">
-            <p>Tile Description</p>
-        </TileContent>
-    </Tile>
-    <Tile>
-        <TileMedia>
-            <Image size="l" type="circle" photo="https://placeimg.com/400/400/nature"></Image>
-        </TileMedia>
-        <TileContent title="Tile Title">
-            <p>Tile Description</p>
-        </TileContent>
-    </Tile>
-    <Tile>
-        <TileContent title="Tile Title">
-            <p>Tile Description</p>
-        </TileContent>
-    </Tile>
-    <Tile isButton="true">
-        <TileMedia>
-            <Identifier size="l" glyph="home" color="3"></Identifier>
-        </TileMedia>
-        <TileContent title="Tile Title">
-        </TileContent>
-    </Tile>
-    <Tile >
-        <TileContent title="Tile Title">
-            <p>Tile Description</p>
-        </TileContent>
-    </Tile>
-    <Tile columnSpan={2} colorAccent={4}>
-        <TileContent title="Tile Title">
-            <p>Tile Description</p>
-        </TileContent>
-    </Tile>
-</TileGrid>`
-
     return (
-        <div>
-            <Header>Tile and Tile Grid</Header>
-            <Description>A Tile component can be used to display information in a simple container format. A collection of tile can be displayed using <code>fd-tile-grid</code> </Description>
-            <Import module="Tile, TileContent, TileMedia, TileActions, ProductTile, ProductTileContent, ProductTileMedia, TileGrid" path="/react-fundamental/src/" />
+        <ComponentPage
+            description={`A **Tile** can be used to display information in a simple container format.
+                A collection of tiles can be displayed using **LayoutGrid**.`}
+            sourceModulePath={path.join(__dirname, './Tile')}
+            title='Tile'>
 
-            <Separator />
-
-            <Properties type="Inputs" properties=
-                {[
-                    { name: 'title', description: 'String - the title of the Tile Content' },
-                    { name: 'isButton', description: 'Bool - when set to true, renders the tile as a button.' },
-                    { name: 'disabled', description: 'Bool - when set to true, disables the tile.' },
-                    { name: 'image', description: 'String (required) - url of the image used in Product Tile.' },
-                    { name: 'rowSpan', description: 'Number - the number of rows the tile covers.' },
-                    { name: 'columnSpan', description: 'Number - the number of columns the tile covers.' },
-                    { name: 'colorAccent', description: 'Number - applies a background color. Options include numbers from 1 to 9.' }
-
-                ]} />
-
-            <Separator />
-
-
-            <h2>Simple Tile</h2>
-            <DocsTile>
+            <Example
+                title='Simple Tile'>
                 <Tile>
-                    <TileContent title="Tile Title">
+                    <Tile.Content title='Tile Title'>
                         <p>Tile Description</p>
-                    </TileContent>
+                    </Tile.Content>
                 </Tile>
-            </DocsTile>
-            <DocsText>{simpleTileCode}</DocsText>
+            </Example>
 
-            <Separator />
-
-            <h2>Media Tile</h2>
-            <DocsTile>
-                <Tile>
-                    <TileMedia>
-                        <Image size="m" photo="https://placeimg.com/400/400/nature"></Image>
-                    </TileMedia>
-                    <TileContent title="Tile Title">
-                    </TileContent>
-                </Tile>
-                <br />
-                <Tile isButton="true">
-                    <TileMedia>
-                        <Image size="l" type="circle" photo="https://placeimg.com/400/400/nature"></Image>
-                    </TileMedia>
-                    <TileContent title="Tile Title">
-                        <p>Tile Description</p>
-                    </TileContent>
-                </Tile>
-                <br />
-                <Tile isButton="true">
-                    <TileMedia>
-                        <Identifier size="m" glyph="home" color="3"></Identifier>
-                    </TileMedia>
-                    <TileContent title="Tile Title">
-                        <p>Tile Description</p>
-                    </TileContent>
-                </Tile>
-            </DocsTile>
-            <DocsText>{mediaTileCode}</DocsText>
-
-            <Separator />
-
-            <h2>Actions Tile</h2>
-            <DocsTile>
-                <Tile>
-                    <TileContent title="Tile Title">
-                    </TileContent>
-                    <TileActions>
-                        <Dropdown size="m" isContextual={true}>
-                            <DropdownList links=
-                                {[
-                                    { id: 'item_1', url: '#', name: 'Option 1' },
-                                    { id: 'item_2', url: '#', name: 'Option 2' },
-                                    { id: 'item_3', url: '#', name: 'Option 3' }
-                                ]}>
-                            </DropdownList>
-                        </Dropdown>
-                    </TileActions>
-                </Tile>
-            </DocsTile>
-            <DocsText>{actionsTileCode}</DocsText>
-
-            <Separator />
-
-            <h2>Product Tile</h2>
-            <DocsTile>
+            <Example
+                title='Media Tile'>
                 <div>
-                    <ProductTile isButton="true">
-                        <ProductTileMedia image="https://techne.yaas.io/images/product-thumbnail-wide.png"></ProductTileMedia>
-                        <ProductTileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </ProductTileContent>
-                    </ProductTile>
-
+                    <Tile>
+                        <Tile.Media>
+                            <Image photo='https://placeimg.com/400/400/nature' size='m' />
+                        </Tile.Media>
+                        <Tile.Content title='Tile Title' />
+                    </Tile>
                     <br />
-
-                    <ProductTile disabled="true">
-                        <ProductTileMedia image="https://techne.yaas.io/images/product-thumbnail-wide.png"></ProductTileMedia>
-                        <ProductTileContent title="Tile Title">
+                    <Tile>
+                        <Tile.Media>
+                            <Image photo='https://placeimg.com/400/400/nature' size='l'
+                                type='circle' />
+                        </Tile.Media>
+                        <Tile.Content title='Tile Title'>
                             <p>Tile Description</p>
-                        </ProductTileContent>
-                    </ProductTile>
+                        </Tile.Content>
+                    </Tile>
+                    <br />
+                    <Tile>
+                        <Tile.Media>
+                            <Identifier color={3} glyph='home'
+                                size='m' />
+                        </Tile.Media>
+                        <Tile.Content title='Tile Title'>
+                            <p>Tile Description</p>
+                        </Tile.Content>
+                    </Tile>
                 </div>
-            </DocsTile>
-            <DocsText>{productTileCode}</DocsText>
+            </Example>
 
-            <br />
-            <Separator />
+            <Example
+                title='Actions Tile'>
+                <Tile>
+                    <Tile.Content title='Tile Title' />
+                    <Tile.Actions>
+                        <Popover
+                            body={
+                                <Menu>
+                                    <Menu.List>
+                                        <Menu.Item url='#'>Option 1</Menu.Item>
+                                        <Menu.Item url='#'>Option 2</Menu.Item>
+                                        <Menu.Item url='#'>Option 3</Menu.Item>
+                                        <Menu.Item url='#'>Option 4</Menu.Item>
+                                    </Menu.List>
+                                </Menu>
+                            }
+                            control={<Button glyph='vertical-grip' option='light' />}
+                            placement='bottom-end' />
+                    </Tile.Actions>
+                </Tile>
+            </Example>
 
-            <h2>Tile Grid Component</h2>
-            <Description>A Tile Gird is a collection of Tiles components in a gird layout.</Description>
-            <DocsTile>
-                <TileGrid col={4}>
-                    <Tile rowSpan={2} colorAccent={7}>
-                        <TileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </TileContent>
-                    </Tile>
-                    <Tile>
-                        <TileMedia>
-                            <Image size="l" type="circle" photo="https://placeimg.com/400/400/nature"></Image>
-                        </TileMedia>
-                        <TileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </TileContent>
-                    </Tile>
-                    <Tile>
-                        <TileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </TileContent>
-                    </Tile>
-                    <Tile isButton="true">
-                        <TileMedia>
-                            <Identifier size="l" glyph="home" color="3"></Identifier>
-                        </TileMedia>
-                        <TileContent title="Tile Title">
-                        </TileContent>
-                    </Tile>
-                    <Tile >
-                        <TileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </TileContent>
-                    </Tile>
-                    <Tile columnSpan={2} colorAccent={4}>
-                        <TileContent title="Tile Title">
-                            <p>Tile Description</p>
-                        </TileContent>
-                    </Tile>
-                </TileGrid>
-            </DocsTile>
-            <DocsText>{tileGridCode}</DocsText>
+            <Example
+                title='Media with Actions Tile'>
+                <Tile>
+                    <Tile.Media>
+                        <Image photo='https://placeimg.com/400/400/nature' size='l'
+                            type='circle' />
+                    </Tile.Media>
+                    <Tile.Content title='Tile Title' />
+                    <Tile.Actions>
+                        <Popover
+                            body={
+                                <Menu>
+                                    <Menu.List>
+                                        <Menu.Item url='#'>Option 1</Menu.Item>
+                                        <Menu.Item url='#'>Option 2</Menu.Item>
+                                        <Menu.Item url='#'>Option 3</Menu.Item>
+                                        <Menu.Item url='#'>Option 4</Menu.Item>
+                                    </Menu.List>
+                                </Menu>
+                            }
+                            control={<Button glyph='vertical-grip' option='light' />}
+                            placement='bottom-end' />
+                    </Tile.Actions>
+                </Tile>
+            </Example>
 
-            <Separator />
-
-        <Playground component="tile" schema= {[
-                        {
-                            attribute: 'type',
-                            typeOfAttribute: 'component',
-                            enum: ['simple', 'media', 'product']
-                        },
-                        {
-                            attribute: 'title',
-                            typeOfAttribute: 'string'
-                        },
-                        {
-                            attribute: 'children',
-                            typeOfAttribute: 'string'
-                        }
-            ]}>
-            <Tile>
-                <TileContent title="Tile Title">
-                    <p>Tile Description</p>
-                </TileContent>
-            </Tile>
-        </Playground>
-
-        </div>
+            <Example
+                title='Product Tile'>
+                <Tile backgroundImage='https://placeimg.com/1600/400/nature' productTile>
+                    <Tile.Content title='Tile Title'>
+                        <p>Tile Description</p>
+                    </Tile.Content>
+                </Tile>
+            </Example>
+        </ComponentPage>
     );
-}
+};

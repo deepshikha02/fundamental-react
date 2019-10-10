@@ -1,28 +1,28 @@
-import React from 'react';
+import BreadcrumbItem from './_BreadcrumbItem';
 import PropTypes from 'prop-types';
-import { BrowserRouter, Link } from 'react-router-dom'
+import React from 'react';
+import withStyles from '../utils/WithStyles/WithStyles';
 
-export const Breadcrumb = (props) => {
-    const { children } = props;
-    return (
-        <ul className="fd-breadcrumb">
-            {children}
-        </ul>
-    );
-}
+const Breadcrumb = React.forwardRef(({ children, disableStyles, ...props }, ref) => {
+    return (<ul {...props}
+        className='fd-breadcrumb'
+        ref={ref}>{children}</ul>);
+});
 
-export const BreadcrumbItem = (props) => {
-    const { url, name } = props;
-    return (
-        <BrowserRouter>
-            <li className="fd-breadcrumb__item">
-                <Link className="fd-breadcrumb__link" to={{ pathname: url }} >{name}</Link>
-            </li>
-        </BrowserRouter>
-    );
-}
+Breadcrumb.displayName = 'Breadcrumb';
 
-BreadcrumbItem.propTypes = {
-    url: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired
-}
+Breadcrumb.propTypes = {
+    children: PropTypes.node,
+    customStyles: PropTypes.object,
+    disableStyles: PropTypes.bool
+};
+
+Breadcrumb.propDescriptions = {
+    children: 'List item (`BreadcrumbItem`) nodes.'
+};
+
+Breadcrumb.Item = BreadcrumbItem;
+
+export { Breadcrumb as __Breadcrumb };
+
+export default withStyles(Breadcrumb, { cssFile: 'breadcrumb', font: true });

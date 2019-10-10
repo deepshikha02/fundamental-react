@@ -1,107 +1,52 @@
-import React from 'react'
-import { Image, Dropdown, DropdownList } from '../'
-import { } from '../'
-import { DocsTile, DocsText, Separator, Header, Description, Import, Properties } from '../'
-import { Table } from '../'
+import path from 'path';
+import { Button, Checkbox, Image, Menu, Popover, Table } from '../';
+import { ComponentPage, Example } from '../_playground';
+import React, { useState } from 'react';
 
 export const TableComponent = () => {
-    const simpleTableCode = `<Table
-    headers={['Column Header 1', 'Column Header 2', 'Column Header 3', 'Column Header 4']}
-    tableData={[
-        {
-            rowData: ['Data 1', 'Data 2', 'Data 3', 'Data 4']
-        },
-        {
-            rowData: ['Data 5', 'Data 6', 'Data 7', 'Data 8']
-        }
-    ]}>
-</Table>`
+    const [checkedItems, setCheckedItems] = useState({});
 
-    const richTableCode = `<Table
-    headers={[<input type="checkbox" />, 'Avatar', 'email', 'First Name', 'Last Name', 'Date', ' ']}
-    tableData={[
+    const handleChange = (event) => {
+        setCheckedItems({ ...checkedItems, [event.target.name]: event.target.checked });
+    };
+
+    const tableRowData = [
         {
-            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/green?size=50x50"></Image>, 
-            <a href="#" class="fd-has-font-weight-semi">user.name@email.com</a>, 'First Name', 'Last Name', '01/26/17', 
-            <Dropdown isContextual={true}>
-                <DropdownList links=
-                    {[
-                        { id: 'item_1', url: '#', name: 'Edit' },
-                        { id: 'item_2', url: '#', name: 'Lock' },
-                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                        { id: 'item_4', url: '#', name: 'Delete' }
-                    ]}>
-                </DropdownList>
-            </Dropdown>]
+            email: 'user.name@test.com',
+            date: '1/10/20',
+            name: 'User',
+            photoUrl: 'https://robohash.org/green?size=50x50'
         },
         {
-            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/brown?size=50x50"></Image>, 
-            <a href="#" class="fd-has-font-weight-semi">florence.garcia@qwerty.io</a>, 'First Name', 'Last Name', '07/29/18', 
-            <Dropdown isContextual={true}>
-                <DropdownList links=
-                    {[
-                        { id: 'item_1', url: '#', name: 'Edit' },
-                        { id: 'item_2', url: '#', name: 'Lock' },
-                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                        { id: 'item_4', url: '#', name: 'Delete' }
-                    ]}>
-                </DropdownList>
-            </Dropdown>]
+            email: 'florence.garcia@qwerty.io',
+            date: '10/20/19',
+            name: 'Florence',
+            photoUrl: 'https://robohash.org/brown?size=50x50'
         },
         {
-            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/Q27.png?set=set1&size=50x50"></Image>, 
-            <a href="#" class="fd-has-font-weight-semi">mark.helper@qwerty.io</a>, 'First Name', 'Last Name', '05/26/18',
-            <Dropdown isContextual={true}>
-                <DropdownList links=
-                    {[
-                        { id: 'item_1', url: '#', name: 'Edit' },
-                        { id: 'item_2', url: '#', name: 'Lock' },
-                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                        { id: 'item_4', url: '#', name: 'Delete' }
-                    ]}>
-                </DropdownList>
-            </Dropdown>]
+            email: 'mark.helper@qwerty.io',
+            date: '9/15/19',
+            name: 'Mark',
+            photoUrl: 'https://robohash.org/Q27.png?set=set1&size=50x50'
         },
         {
-            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/water?&size=50x50"></Image>, 
-            <a href="#" class="fd-has-font-weight-semi">user.name@email.com</a>, 'First Name', 'Last Name', '01/26/14',
-            <Dropdown isContextual={true}>
-                <DropdownList links=
-                    {[
-                        { id: 'item_1', url: '#', name: 'Edit' },
-                        { id: 'item_2', url: '#', name: 'Lock' },
-                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                        { id: 'item_4', url: '#', name: 'Delete' }
-                    ]}>
-                </DropdownList>
-            </Dropdown>]
+            email: 'jenna@qwerty.io',
+            date: '11/12/19',
+            name: 'Jenna',
+            photoUrl: 'https://robohash.org/water?&size=50x50'
         }
-    ]}>
-</Table>`
+    ];
 
 
     return (
-        <div>
-            <Header>Table</Header>
-            <Description>A table is a set tabular data. Line items can support data, images and actions.</Description>
-            <Import module="Table" path="/react-fundamental/src/" />
+        <ComponentPage
+            description='A **Table** is a set of tabular data. Line items can support `data`, `images` and `actions`.'
+            sourceModulePath={path.join(__dirname, './Table')}
+            title='Table'>
 
-            <Separator />
-
-            <Properties type="Inputs" properties=
-                {[
-                    { name: 'headers', description: 'Array of strings for the column headers of the table' },
-                    { name: 'tableData', description: 'Array of objects that contain two properties, rowData (an array of strings containing data for each column in the row), and children (an array of objects containing additional rows).' }
-
-                ]} />
-
-            <Separator />
-
-            <h2>Simple Table</h2>
-            <Description>This is an example of a table with simple cells, where the rowData is an array of strings.</Description>
-            <br />
-            <br />
-            <DocsTile>
+            <Example
+                description='This is an example of a **Table** with simple cells, where the `rowData` is an array of strings.'
+                title='Simple Table'>
                 <Table
                     headers={['Column Header 1', 'Column Header 2', 'Column Header 3', 'Column Header 4']}
                     tableData={[
@@ -111,77 +56,49 @@ export const TableComponent = () => {
                         {
                             rowData: ['Data 5', 'Data 6', 'Data 7', 'Data 8']
                         }
-                    ]}>
-                </Table>
+                    ]} />
+            </Example>
 
-            </DocsTile>
-            <DocsText>{simpleTableCode}</DocsText>
-
-            <Separator />
-
-            <h2>Rich Table</h2>
-            <Description>This is an example of a table with rich cells. The checkbox input can be used at the beginning of each row to allow for bulk actions.When more than three actions exist per row and/or space doesn’t allow for actions, a contextual menu can be substituted in order to display all actions in one menu.</Description>
-            <DocsTile>
+            <Example
+                description={`This is an example of a **Table** with "rich" cells. The checkbox input can be used at the beginning of each
+                    row to allow for bulk actions. When more than three actions exist per row and/or space doesn’t allow for
+                    actions, a contextual menu can be substituted in order to display all actions in one menu.`}
+                title='Rich Table'>
                 <Table
-                    headers={[<input type="checkbox" />, 'Avatar', 'email', 'First Name', 'Last Name', 'Date', ' ']}
-                    tableData={[
-                        {
-                            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/green?size=50x50"></Image>, <a href="#" class="fd-has-font-weight-semi">user.name@email.com</a>, 'First Name', 'Last Name', '01/26/17', 
-                            <Dropdown isContextual={true}>
-                                <DropdownList links=
-                                    {[
-                                        { id: 'item_1', url: '#', name: 'Edit' },
-                                        { id: 'item_2', url: '#', name: 'Lock' },
-                                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                                        { id: 'item_4', url: '#', name: 'Delete' }
-                                    ]}>
-                                </DropdownList>
-                            </Dropdown>]
-                        },
-                        {
-                            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/brown?size=50x50"></Image>, <a href="#" class="fd-has-font-weight-semi">florence.garcia@qwerty.io</a>, 'First Name', 'Last Name', '07/29/18', 
-                            <Dropdown isContextual={true}>
-                                <DropdownList links=
-                                    {[
-                                        { id: 'item_1', url: '#', name: 'Edit' },
-                                        { id: 'item_2', url: '#', name: 'Lock' },
-                                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                                        { id: 'item_4', url: '#', name: 'Delete' }
-                                    ]}>
-                                </DropdownList>
-                            </Dropdown>]
-                        },
-                        {
-                            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/Q27.png?set=set1&size=50x50"></Image>, <a href="#" class="fd-has-font-weight-semi">mark.helper@qwerty.io</a>, 'First Name', 'Last Name', '05/26/18',
-                            <Dropdown isContextual={true}>
-                                <DropdownList links=
-                                    {[
-                                        { id: 'item_1', url: '#', name: 'Edit' },
-                                        { id: 'item_2', url: '#', name: 'Lock' },
-                                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                                        { id: 'item_4', url: '#', name: 'Delete' }
-                                    ]}>
-                                </DropdownList>
-                            </Dropdown>]
-                        },
-                        {
-                            rowData: [<input type="checkbox" />, <Image size="m" photo="https://robohash.org/water?&size=50x50"></Image>, <a href="#" class="fd-has-font-weight-semi">user.name@email.com</a>, 'First Name', 'Last Name', '01/26/14',
-                            <Dropdown isContextual={true}>
-                                <DropdownList links=
-                                    {[
-                                        { id: 'item_1', url: '#', name: 'Edit' },
-                                        { id: 'item_2', url: '#', name: 'Lock' },
-                                        { id: 'item_3', url: '#', name: 'Duplicate' },
-                                        { id: 'item_4', url: '#', name: 'Delete' }
-                                    ]}>
-                                </DropdownList>
-                            </Dropdown>]
-                        }
-                    ]}>
-                </Table>
-            </DocsTile>
-            <DocsText>{richTableCode}</DocsText>
-
-        </div>
+                    headers={[<Checkbox />, 'Avatar', 'email', 'First Name', 'Last Name', 'Date', ' ']}
+                    tableData={
+                        tableRowData.map(item => {
+                            return ({
+                                rowData: [
+                                    <Checkbox
+                                        checked={checkedItems[item.name]}
+                                        name={item.name}
+                                        onChange={handleChange} />,
+                                    <Image photo={item.photoUrl} size='m' />,
+                                    <a className='fd-has-font-weight-semi' href='#'>
+                                        {item.email}
+                                    </a>,
+                                    'First Name',
+                                    'Last Name',
+                                    '01/26/17',
+                                    <Popover
+                                        body={
+                                            <Menu>
+                                                <Menu.List>
+                                                    <Menu.Item url='#'>Option 1</Menu.Item>
+                                                    <Menu.Item url='#'>Option 2</Menu.Item>
+                                                    <Menu.Item url='#'>Option 3</Menu.Item>
+                                                    <Menu.Item url='#'>Option 4</Menu.Item>
+                                                </Menu.List>
+                                            </Menu>
+                                        }
+                                        control={<Button glyph='vertical-grip' option='light' />}
+                                        placement='bottom-end' />
+                                ]
+                            });
+                        })
+                    } />
+            </Example>
+        </ComponentPage>
     );
-}
+};

@@ -1,0 +1,437 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TimePicker /> create time picker 1`] = `
+<div
+  id="myTime"
+>
+  <div
+    className="fd-popover"
+    id="myTime-popover"
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            id="myTime-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+              id="myTime-button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 2`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 3`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 4`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss"
+            readOnly={true}
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch is-disabled fd-input-group__button"
+              disabled={true}
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 5`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 6`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 7`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:mm:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 8`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="mm:ss"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 9`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="mm:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<TimePicker /> create time picker 10`] = `
+<div>
+  <div
+    className="fd-popover"
+    id=""
+  >
+    <div
+      onFocus={[Function]}
+      onMouseDown={[Function]}
+      onTouchStart={[Function]}
+    >
+      <div
+        className="fd-popover__control"
+      >
+        <div
+          className="fd-input-group"
+          onClick={[Function]}
+        >
+          <input
+            className="fd-input"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="hh:ss am/pm"
+            type="text"
+            value=""
+          />
+          <span
+            className="fd-input-group__addon fd-input-group__addon--button"
+          >
+            <button
+              aria-controls="rthHR811"
+              aria-expanded="false"
+              aria-haspopup="true"
+              className="fd-button--light fd-button--compact sap-icon--fob-watch fd-input-group__button"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
